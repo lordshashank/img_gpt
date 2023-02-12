@@ -83,7 +83,7 @@ const Webcam = () => {
   };
   const handleAnswer = async () => {
     try {
-      const response = await fetch("http://10.61.53.33:3001//answer", {
+      const response = await fetch("https://10.61.53.33:3001//answer", {
         method: "POST",
         body: JSON.stringify({ text }),
         headers: {
