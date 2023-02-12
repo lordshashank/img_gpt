@@ -83,13 +83,16 @@ const Webcam = () => {
   };
   const handleAnswer = async () => {
     try {
-      const response = await fetch("https://10.61.53.33:3001//answer", {
-        method: "POST",
-        body: JSON.stringify({ text }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://enthusiastic-hen-petticoat.cyclic.app//answer",
+        {
+          method: "POST",
+          body: JSON.stringify({ text }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const resData = await response.json();
       console.log(resData);
       console.log(typeof resData);
