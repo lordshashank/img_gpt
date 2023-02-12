@@ -118,7 +118,9 @@ const Webcam = () => {
         <div className={`${classes.flex}`}>
           <img src={`data:image/jpeg;base64,${image}`} alt="Captured" />
           {text != "capital of india is " && <p>{text}</p>}
-          <button onClick={handleAnswer}>Check Answer</button>
+          <button onClick={() => setTimeout(handleAnswer, 2000)}>
+            Check Answer
+          </button>
           {answer && <p>{answer}</p>}
         </div>
       ) : (
@@ -127,8 +129,6 @@ const Webcam = () => {
             {!disable && <button onClick={handleStart}>Start camera</button>}{" "}
             {disable && <button onClick={handleStop}>Stop Camera</button>}{" "}
             {disable && <button onClick={handleCameraClick}>Capture</button>}
-            <button onClick={handleAnswer}>Check Answer</button>
-            {answer && <p>{answer}</p>}
           </div>
           <div>
             <input
