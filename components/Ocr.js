@@ -133,17 +133,6 @@ const Webcam = () => {
       {image ? (
         <div className={`${classes.flex}`}>
           <img src={`data:image/jpeg;base64,${image}`} alt="Captured" />
-          {/* {text != "capital of india is " && <p>{text}</p>}
-           */}
-          <textarea
-            value={text}
-            placeholder="You can write text here"
-            onChange={(e) => setText(e.target.value)}
-          />
-          <button onClick={() => setTimeout(handleAnswer, 2000)}>
-            Check Answer
-          </button>
-          {answer && <p>{answer}</p>}
         </div>
       ) : (
         <div className={classes.noImage}>
@@ -160,13 +149,18 @@ const Webcam = () => {
               onChange={handleFileInput}
             />
           </div>
-          <textarea
-            value={text}
-            placeholder="You can write text here"
-            onChange={(e) => setText(e.target.value)}
-          />
         </div>
       )}
+
+      <textarea
+        value={text}
+        placeholder="You can write text here"
+        onChange={(e) => setText(e.target.value)}
+      />
+      <button onClick={() => setTimeout(handleAnswer, 2000)}>
+        Check Answer
+      </button>
+      {answer && <p>{answer}</p>}
     </div>
   );
 };
