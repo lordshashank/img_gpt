@@ -95,6 +95,7 @@ const Webcam = () => {
     reader.readAsDataURL(file);
   };
   const handleAnswer = async () => {
+    setAnswer("...Loading");
     try {
       const response = await fetch(
         "https://enthusiastic-hen-petticoat.cyclic.app//answer",
@@ -104,6 +105,7 @@ const Webcam = () => {
           headers: {
             "Content-Type": "application/json",
           },
+          mode: "no-cors",
         }
       );
       const resData = await response.json();
@@ -117,9 +119,9 @@ const Webcam = () => {
       // setIsLoading(false);
     }
   };
-  useEffect(() => {
-    console.log("text", text);
-  }, [text]);
+  // useEffect(() => {
+  //   console.log("text", text);
+  // }, [text]);
 
   return (
     <div className={classes.cover}>
