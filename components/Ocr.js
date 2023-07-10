@@ -12,8 +12,8 @@ const Webcam = () => {
   const [answer, setAnswer] = useState(null);
 
   // useEffect(() => {
-
-  // }, []);
+  //   console.log(text);
+  // }, [text]);
   const handleStart = () => {
     const startCamera = async () => {
       try {
@@ -87,8 +87,8 @@ const Webcam = () => {
       const result = await Tesseract.recognize(
         `data:image/jpeg;base64,${imageData}`
       );
-      console.log(result.data.text);
-      console.log(result);
+      // console.log(result.data.text);
+      // console.log(result);
       setText(result.data.text);
     };
 
@@ -97,20 +97,22 @@ const Webcam = () => {
   const handleAnswer = async () => {
     setAnswer("...Loading");
     try {
+      // console.log(text);
       const response = await fetch(
-        "https://enthusiastic-hen-petticoat.cyclic.app//answer",
+        // "http://localhost:3001/answer",
+        "https://img-gpt-backend.onrender.com/answer",
         {
           method: "POST",
           body: JSON.stringify({ text }),
           headers: {
             "Content-Type": "application/json",
           },
-          mode: "no-cors",
+          // mode: "no-cors",
         }
       );
       const resData = await response.json();
-      console.log(resData);
-      console.log(typeof resData);
+      // console.log(resData);
+      // console.log(typeof resData);
       setAnswer(resData.generatedText);
       // setIsLoading(false);
       // fs.writeFileSync("../pages/api/files/files.json", resData);
